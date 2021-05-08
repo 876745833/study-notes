@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crc.redis.mapper.TtjjMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.crc.redis.entity.Ttjj">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="date" jdbcType="VARCHAR" property="date"/>
+        <result column="unitWorth" jdbcType="VARCHAR" property="unitWorth"/>
+        <result column="dayUp" jdbcType="VARCHAR" property="dayUp"/>
+        <result column="weekUp" jdbcType="VARCHAR" property="weekUp"/>
+        <result column="monthUp" jdbcType="VARCHAR" property="monthUp"/>
+        <result column="monthUp3" jdbcType="VARCHAR" property="monthUp3"/>
+        <result column="monthUp6" jdbcType="VARCHAR" property="monthUp6"/>
+        <result column="yearUp" jdbcType="VARCHAR" property="yearUp"/>
+        <result column="yearUp2" jdbcType="VARCHAR" property="yearUp2"/>
+        <result column="yearUp3" jdbcType="VARCHAR" property="yearUp3"/>
+        <result column="nowYear" jdbcType="VARCHAR" property="nowYear"/>
+        <result column="createFromUp" jdbcType="VARCHAR" property="createFromUp"/>
+    </resultMap>
+
+    <insert id="insertValues" parameterType="com.crc.redis.entity.Ttjj">
+        insert into t_user(
+        `id`,
+        `name`,
+        `type`,
+        `date`,
+        `unitWorth`,
+        `dayUp`,
+        `weekUp`,
+        `monthUp`,
+        `monthUp3`,
+        `monthUp6`,
+        `yearUp`,
+        `yearUp2`,
+        `yearUp3`,
+        `nowYear`,
+        `createFromUp`
+        ) VALUES
+        <foreach collection="list" item="emp" separator=",">
+            (
+            #{emp.id},
+            #{emp.name},
+            #{emp.type},
+            #{emp.date},
+            #{emp.unitWorth},
+            #{emp.dayUp},
+            #{emp.weekUp},
+            #{emp.monthUp},
+            #{emp.monthUp3},
+            #{emp.monthUp6},
+            #{emp.yearUp},
+            #{emp.yearUp2},
+            #{emp.yearUp3},
+            #{emp.nowYear},
+            #{emp.createFromUp}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

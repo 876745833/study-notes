@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    timeout: 3000  #连接超时时间（毫秒）
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/crc?useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:xml/*.xml
